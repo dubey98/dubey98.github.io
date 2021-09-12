@@ -17,8 +17,8 @@ function ProjectPanel() {
   `);
 
   return (
-    <div className="grid sm:grid-cols-2 grid-cols-1 hover:shadow-lg">
-      <div className="relative">
+    <div className="grid sm:grid-cols-2 grid-cols-1 hover:shadow-lg border border-red-200">
+      <div className="relative border">
         <div className="h-80 w-full">
           <Img
             fluid={imgData.file.childImageSharp.fluid}

@@ -1,12 +1,18 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "my-folio",
+    title: "Shiv Dubey",
   },
   plugins: [
     "gatsby-plugin-postcss",
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        icon: "./static/favicon.svg",
+      },
+    },
     `gatsby-transformer-sharp`,
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
