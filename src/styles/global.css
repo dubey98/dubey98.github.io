@@ -8,11 +8,10 @@
 }
 
 .bg-developer {
-  background-image: url("./../../static/images/developer-1.svg");
+  background-image: url("./../images/developer-1.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-origin: content-box;
 }
 
 body {
