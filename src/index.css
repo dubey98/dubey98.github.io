@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.project:nth-child(even) {
+  @apply sm:flex-row-reverse;
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Intro from "../components/main/Intro";
-import Projects from "./Projects";
+import Projects from "../components/Projects";
+import AdditionalProjects from "../components/AdditionalProjects";
 
 function HomePage() {
   return (
@@ -11,7 +12,8 @@ function HomePage() {
         <Intro />
       </section>
       <section id="projects" className="flex flex-col">
-        <Projects/>
+        <Projects />
+        <AdditionalProjects />
       </section>
     </div>
   );
