@@ -3,7 +3,7 @@ import KarmaHomePage from "./../static/karma-1.png";
 
 function AdditionalProjects() {
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="p-8 sm:flex sm:flex-col max-w-5xl min-w-4xl mx-auto">
         <div className="mb-8 sm:mb-0 sm:flex project">
           <ProjectImage />

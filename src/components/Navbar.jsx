@@ -25,11 +25,21 @@ function Navbar() {
         </div>
       </div>
       <div className="hidden pr-9 sm:pr-0 sm:flex pl-6 sm:pl-0" ref={hamburger}>
-        <div className="sm:flex p-2 items-center">Projects</div>
-        <div className="sm:flex p-2 items-center">Resume</div>
-        <div className="flex-grow p-2 text-lg hidden sm:block">SHIV DUBEY</div>
-        <div className="sm:flex p-2 items-center">About</div>
-        <div className="sm:flex p-2 items-center">Contact</div>
+        <div className="sm:flex p-2 items-center">
+          <a href="#projects">Projects</a>
+        </div>
+        <div className="sm:flex p-2 items-center">
+          <a href="#resume">Resume</a>
+        </div>
+        <div className="flex-grow p-2 text-lg hidden sm:block">
+          <a href="#">SHIV DUBEY</a>
+        </div>
+        <div className="sm:flex p-2 items-center">
+          <a href="#about">About</a>
+        </div>
+        <div className="sm:flex p-2 items-center">
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </div>
   );
