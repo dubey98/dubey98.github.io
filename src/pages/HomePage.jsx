@@ -4,6 +4,7 @@ import Intro from "../components/main/Intro";
 import Projects from "../components/Projects";
 import AdditionalProjects from "../components/AdditionalProjects";
 import About from "../components/About";
+import Contact from "../components/Contact";
 
 function HomePage() {
   return (
@@ -18,6 +19,9 @@ function HomePage() {
       </section>
       <section id="about">
         <About />
+      </section>
+      <section id="contact">
+        <Contact />
       </section>
     </div>
   );

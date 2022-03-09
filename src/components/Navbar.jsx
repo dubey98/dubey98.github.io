@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <div className="p-2 text-center">
+    <div className="p-2 text-center bg-white">
       <div className="flex flex-row sm:hidden">
         <div
           className="flex h-6 flex-col justify-between sm:hidden"

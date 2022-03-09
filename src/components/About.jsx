@@ -30,7 +30,7 @@ function About() {
             </span>
           </div>
         </div>
-        <div className="mx-auto w-fit pt-6">
+        <div className="mx-auto w-fit pt-6" id="resume">
           <button className="border-2 border-red-100 p-2">Download Resume</button>
         </div>
       </div>
