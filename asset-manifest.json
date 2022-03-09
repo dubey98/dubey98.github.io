@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23644c34.css",
+    "main.js": "/static/js/main.881597f9.js",
+    "static/js/787.e91f2fde.chunk.js": "/static/js/787.e91f2fde.chunk.js",
+    "static/media/vastram-1.png": "/static/media/vastram-1.d446830911e60bf8a625.png",
+    "static/media/karma-1.png": "/static/media/karma-1.de3bfdd58a973466964f.png",
+    "static/media/developer.svg": "/static/media/developer.2493280966b54eb6713d3544a981a8a9.svg",
+    "index.html": "/index.html",
+    "main.23644c34.css.map": "/static/css/main.23644c34.css.map",
+    "main.881597f9.js.map": "/static/js/main.881597f9.js.map",
+    "787.e91f2fde.chunk.js.map": "/static/js/787.e91f2fde.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23644c34.css",
+    "static/js/main.881597f9.js"
+  ]
+}
