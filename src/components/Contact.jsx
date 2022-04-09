@@ -14,6 +14,7 @@ function Contact() {
             name="name"
             id="name"
             placeholder="Enter name"
+            autoComplete="off"
           />
         </div>
         <div className="p-1">
@@ -26,6 +27,7 @@ function Contact() {
             name="email"
             id="email"
             placeholder="email"
+            autoComplete="off"
           />
         </div>
         <div className="p-1">
@@ -38,6 +40,7 @@ function Contact() {
             id="message"
             cols="30"
             rows="10"
+            autoComplete="off"
           ></textarea>
         </div>
         <div className="p-1">
