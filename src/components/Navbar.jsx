@@ -1,43 +1,83 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 
 function Navbar() {
-  const hamburger = useRef(null);
+  const [active, setActive] = useState(false);
 
   const handleHamburgerClick = () => {
-    if (hamburger && hamburger.current) {
-      hamburger.current.classList.toggle("hidden");
-    }
+    setActive(!active);
   };
 
   return (
-    <div className="p-2 text-center bg-white uppercase">
-      <div className="flex flex-row sm:hidden">
-        <div
-          className="flex h-6 flex-col justify-between sm:hidden"
-          onClick={handleHamburgerClick}
-        >
-          <div className="w-8 border-2 border-black"></div>
-          <div className="w-8 border-2 border-black"></div>
-          <div className="w-8 border-2 border-black"></div>
-        </div>
-        <div className="flex-grow sm:flex text-xl items-center justify-center pr-9">
-          SHIV DUBEY
-        </div>
+    <div className="p-4 text-center bg-custom-black text-custom-green uppercase w-full relative">
+      <div onClick={handleHamburgerClick} className="absolute sm:hidden">
+        <button class={"relative " + (active ? "group" : "")}>
+          <div
+            class={
+              "relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-[#211E27] shadow-md ring-0 ring-[#BBC3A5] ring-opacity-30 transition-all duration-200  " +
+              (active ? "ring-4" : "")
+            }
+          >
+            <div
+              class={
+                "flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300 " +
+                (active ? "translate-x-1.5" : "")
+              }
+            >
+              <div
+                class={
+                  "h-[2px] w-7 origin-left transform bg-[#BBC3A5] transition-all delay-150 duration-300 " +
+                  (active ? "w-2/3 rotate-[42deg]" : "")
+                }
+              ></div>
+              <div
+                class={
+                  "h-[2px] w-7 transform rounded bg-[#BBC3A5] transition-all duration-300 " +
+                  (active ? "translate-x-10" : "")
+                }
+              ></div>
+              <div
+                class={
+                  "h-[2px] w-7 origin-left transform bg-[#BBC3A5] transition-all delay-150 duration-300 " +
+                  (active ? "w-2/3 -rotate-[42deg]" : "")
+                }
+              ></div>
+            </div>
+          </div>
+        </button>
       </div>
-      <div className="hidden pr-9 sm:pr-0 sm:flex pl-6 sm:pl-0" ref={hamburger}>
-        <div className="sm:flex p-2 items-center">
+      <div className="h-[50px] flex items-center justify-center">
+        <div className="hidden sm:block border flex-grow max-w-[200px] border-custom-green"></div>
+        <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
           <a href="#projects">Projects</a>
         </div>
-        <div className="sm:flex p-2 items-center">
+        <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
           <a href="#resume">Resume</a>
         </div>
-        <div className="flex-grow p-2 text-lg hidden sm:block">
-          <a href="#">SHIV DUBEY</a>
-        </div>
-        <div className="sm:flex p-2 items-center">
+        <div className="text-2xl px-6 whitespace-nowrap">SHIV DUBEY</div>
+        <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
           <a href="#about">About</a>
         </div>
-        <div className="sm:flex p-2 items-center">
+        <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
+          <a href="#contact">Contact</a>
+        </div>
+        <div className="hidden sm:block border flex-grow max-w-[200px] border-custom-green"></div>
+      </div>
+      <div
+        className={
+          "z-10 absolute flex flex-col bg-custom-black w-full transition-all ease-in-out duration-200 text-xl left-0 mt-2 sm:hidden " +
+          (active ? "opacity-100" : "h-0 opacity-0 overflow-hidden")
+        }
+      >
+        <div className="p-4" onClick={handleHamburgerClick}>
+          <a href="#projects">Projects</a>
+        </div>
+        <div className="p-4" onClick={handleHamburgerClick}>
+          <a href="#resume">Resume</a>
+        </div>
+        <div className="p-4" onClick={handleHamburgerClick}>
+          <a href="#about">About</a>
+        </div>
+        <div className="p-4" onClick={handleHamburgerClick}>
           <a href="#contact">Contact</a>
         </div>
       </div>

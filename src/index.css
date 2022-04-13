@@ -5,3 +5,7 @@
 .project:nth-child(even) {
   @apply sm:flex-row-reverse;
 }
+
+.d{
+  border: 1px solid yellow;
+}
