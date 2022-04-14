@@ -102,7 +102,7 @@ function Project({ project }) {
   return (
     <div class="box-border flex h-screen bg-custom-black p-2 pl-6 snap-center">
       <div class="relative hidden w-1/4 justify-center sm:flex sm:flex-col sm:items-center">
-        <div class="absolute ring-2 ring-custom-green ring-offset-2 z-0 -ml-40 h-72 w-96 rounded-lg transition-all ease-in-out hover:z-10 hover:ml-0">
+        <div class="absolute ring-2 ring-custom-green ring-offset-2 z-0 h-72 w-96 rounded-lg transition-all ease-in-out hover:z-10 sm:-left-60 md:-left-36 hover:sm:left-2 ">
           <img
             src={vastramImg}
             alt={project.images[0].alt}
