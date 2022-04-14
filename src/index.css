@@ -6,6 +6,10 @@
   @apply sm:flex-row-reverse;
 }
 
-.d{
+.d {
   border: 1px solid yellow;
+}
+
+html {
+  scroll-behavior: smooth;
 }

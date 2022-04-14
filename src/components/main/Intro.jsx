@@ -5,7 +5,7 @@ import developer from "./../../static/developer.png";
 function Intro() {
   return (
     <div
-      className="flex-grow flex flex-row bg-[#211E27] bg-contain bg-no-repeat bg-center"
+      className="flex-grow flex flex-row bg-[#211E27] bg-contain bg-no-repeat bg-center sm:px-12"
       // style={{ backgroundImage: `url(${developer})` }}
     >
       <div className="flex-1 flex flex-col justify-center">
