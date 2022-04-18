@@ -6,8 +6,8 @@ function About() {
       <div className="flex items-center h-full sm:w-3/4 md:ml-auto">
         <div className="border border-l-custom-green h-5/6"></div>
         <div className="text-custom-green px-2 m-2 flex flex-col h-5/6">
-          <div className="max-w-3xl flex-grow">
-            <div className="text-5xl uppercase font-semibold">About Me</div>
+          <div className="text-5xl uppercase font-semibold">About Me</div>
+          <div className="max-w-3xl flex-grow flex items-center">
             <div className="italic font-serif space-y-2 pt-6">
               <p className="">
                 I am a full stack developer and problem solver. i have a passion
@@ -23,8 +23,8 @@ function About() {
                 solution possible. i believe softwares are written with pencils
                 and a lot of work is cut out for erasers.
               </p>
+              <TechTools />
             </div>
-            <TechTools />
           </div>
           <div className="w-fit py-6" id="resume">
             <button className="border-2 px-4 py-2 rounded-md uppercase">
@@ -49,7 +49,7 @@ function TechTools() {
           </i>
           <i className="fab fa-node-js pl-1 pr-1"></i>
           <i className="fab fa-js pl-1 pr-1"></i>
-          <i class="fab fa-css3 pl-1 pr-1"></i>
+          <i className="fab fa-css3 pl-1 pr-1"></i>
           Mongo Db, Sql Server, .NET, Tailwind, Bulma
         </span>
       </div>

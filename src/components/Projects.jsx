@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import vastramImg from "./../static/vastram-1.png";
 
 const defaultProps = {
@@ -82,14 +82,46 @@ const defaultProps = {
 };
 
 function Projects({ projects }) {
-  const handleScroll = (e) => {
-    console.log(e);
-  };
+  const maxIndex = Array.isArray(projects) && projects.length - 1;
+  const [mouseOver, setMouseOver] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const scrollFunc = (e) => {
+      const delta = e.wheelDelta;
+      let listTraversed = false;
+      if (delta < 0 && index < maxIndex) {
+        setIndex(index + 1);
+      } else if (delta > 0 && index > 0) {
+        setIndex(index - 1);
+      } else if (delta !== 0) {
+        console.log("setting list traversed");
+        listTraversed = true;
+      }
+      if (mouseOver && !listTraversed) {
+        e.returnValue = false;
+      }
+      return false;
+    };
+
+    document.querySelector("#projects").addEventListener("wheel", scrollFunc);
+    document.querySelector("#projects").addEventListener("touchstart", () => {
+      console.log("touchstart");
+    });
+    document
+      .querySelector("#projects")
+      .addEventListener("touchend", () => console.log("touchend"));
+
+    return () => {
+      document.querySelector("#app").removeEventListener("wheel", scrollFunc);
+    };
+  }, [mouseOver, index]);
 
   return (
     <div
-      class="h-screen snap-y snap-mandatory overflow-y-auto"
-      onScroll={handleScroll}
+      className="h-screen snap-y snap-mandatory overflow-y-hidden"
+      onMouseEnter={() => setMouseOver(true)}
+      onMouseLeave={() => setMouseOver(false)}
     >
       {projects.map((project, index) => (
         <Project project={project} key={index} />
@@ -100,9 +132,9 @@ function Projects({ projects }) {
 
 function Project({ project }) {
   return (
-    <div class="box-border flex h-screen bg-custom-black p-2 pl-6 snap-center">
-      <div class="relative hidden w-1/4 justify-center sm:flex sm:flex-col sm:items-center">
-        <div class="absolute ring-2 ring-custom-green ring-offset-2 z-0 h-72 w-96 rounded-lg transition-all ease-in-out hover:z-10 sm:-left-60 md:-left-36 hover:sm:left-2 ">
+    <div className="box-border flex h-screen bg-custom-black p-2 pl-6 snap-center">
+      <div className="relative hidden w-1/4 justify-center sm:flex sm:flex-col sm:items-center">
+        <div className="absolute ring-2 ring-custom-green ring-offset-2 z-0 h-72 w-96 rounded-lg transition-all ease-in-out hover:z-10 sm:-left-60 md:-left-36 hover:sm:left-2 ">
           <img
             src={vastramImg}
             alt={project.images[0].alt}
@@ -110,40 +142,42 @@ function Project({ project }) {
           />
         </div>
       </div>
-      <div class="ml-auto flex h-full sm:w-3/4 items-center">
-        <div class="h-4/5 border border-l-custom-green"></div>
-        <div class="m-2 flex flex-grow flex-col py-0 sm:py-16 text-custom-green">
-          <div class="px-2 text-7xl font-semibold text-custom-gray">{project.projectNo}</div>
-          <div class="px-2 text-3xl font-semibold">{project.title}</div>
-          <div class="flex flex-grow flex-col justify-around">
-            <div class="max-w-xl space-y-3 px-2 pt-2">
+      <div className="ml-auto flex h-full sm:w-3/4 items-center">
+        <div className="h-4/5 border border-l-custom-green"></div>
+        <div className="m-2 flex flex-grow flex-col py-0 sm:py-16 text-custom-green">
+          <div className="px-2 text-7xl font-semibold text-custom-gray">
+            {project.projectNo}
+          </div>
+          <div className="px-2 text-3xl font-semibold">{project.title}</div>
+          <div className="flex flex-grow flex-col justify-around">
+            <div className="max-w-xl space-y-3 px-2 pt-2">
               {project.description.map((d, index) => (
                 <p key={index}>{d}</p>
               ))}
             </div>
-            <div class="mx-2 box-border h-32 rounded-lg bg-custom-green ring-4 ring-custom-gray sm:hidden"></div>
+            <div className="mx-2 box-border h-32 rounded-lg bg-custom-green ring-4 ring-custom-gray sm:hidden"></div>
           </div>
-          <div class="space-y-4 pt-4">
-            <div class="relative w-fit">
+          <div className="space-y-4 pt-4">
+            <div className="relative w-fit">
               <a
                 href={project.demoLink}
                 target="_blank"
-                class="rounded-lg block px-2 py-2 text-lg ring-custom-gray ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg before:bg-custom-gray before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-2"
+                className="rounded-lg block px-2 py-2 text-lg ring-custom-gray ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg before:bg-custom-gray before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-2"
               >
                 View Demo
               </a>
             </div>
-            <div class="relative w-fit">
+            <div className="relative w-fit">
               <a
                 href={project.githubLink}
                 target="_blank"
-                class="rounded-lg block px-2 py-2 font-mono text-lg ring-custom-gray ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg before:bg-custom-gray before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-1"
+                className="rounded-lg block px-2 py-2 font-mono text-lg ring-custom-gray ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg before:bg-custom-gray before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-1"
               >
                 Explore Code on Github
               </a>
             </div>
           </div>
-          <div class="w-full bg-custom-green"></div>
+          <div className="w-full bg-custom-green"></div>
         </div>
       </div>
     </div>

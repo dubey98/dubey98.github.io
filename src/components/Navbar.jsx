@@ -10,33 +10,33 @@ function Navbar() {
   return (
     <div className="p-4 text-center bg-custom-black text-custom-green uppercase w-full relative">
       <div onClick={handleHamburgerClick} className="absolute sm:hidden">
-        <button class={"relative " + (active ? "group" : "")}>
+        <button className={"relative " + (active ? "group" : "")}>
           <div
-            class={
+            className={
               "relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-[#211E27] shadow-md ring-0 ring-[#BBC3A5] ring-opacity-30 transition-all duration-200  " +
               (active ? "ring-4" : "")
             }
           >
             <div
-              class={
+              className={
                 "flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300 " +
                 (active ? "translate-x-1.5" : "")
               }
             >
               <div
-                class={
+                className={
                   "h-[2px] w-7 origin-left transform bg-[#BBC3A5] transition-all delay-150 duration-300 " +
                   (active ? "w-2/3 rotate-[42deg]" : "")
                 }
               ></div>
               <div
-                class={
+                className={
                   "h-[2px] w-7 transform rounded bg-[#BBC3A5] transition-all duration-300 " +
                   (active ? "translate-x-10" : "")
                 }
               ></div>
               <div
-                class={
+                className={
                   "h-[2px] w-7 origin-left transform bg-[#BBC3A5] transition-all delay-150 duration-300 " +
                   (active ? "w-2/3 -rotate-[42deg]" : "")
                 }
