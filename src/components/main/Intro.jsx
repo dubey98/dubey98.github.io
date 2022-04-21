@@ -9,8 +9,9 @@ function Intro() {
       // style={{ backgroundImage: `url(${developer})` }}
     >
       <div className="flex-1 flex flex-col justify-center">
-        <div className="h-fit pl-10 sm:pl-4 text-custom-green font-semibold text-4xl uppercase max-w-3xl">
-          HI! I'm SHIV DUBEY, Passionate 
+        <div className="h-fit pl-10 sm:pl-4 text-custom-green font-semibold text-3xl sm:text-4xl uppercase max-w-4xl pr-2">
+          HI! I'm SHIV DUBEY <br />
+          Passionate
           <span className="hover:text-custom-gray"> full stack developer</span>,
           keen on developing
           <span className="hover:text-custom-gray"> scalable</span> and
@@ -18,7 +19,11 @@ function Intro() {
         </div>
       </div>
       <div className="w-1/2 hidden md:block">
-        <img className="h-full object-contain" src={developer} alt="Developer working beside a lamp" />
+        <img
+          className="h-full object-contain"
+          src={developer}
+          alt="Developer working beside a lamp"
+        />
       </div>
     </div>
   );

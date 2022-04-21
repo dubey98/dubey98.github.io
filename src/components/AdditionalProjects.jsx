@@ -1,5 +1,5 @@
 import React from "react";
-import KarmaHomePage from "./../static/karma-1.png";
+import KarmaHomePage from "./../static/karma.png";
 import hotelImage from "./../static/hotel.png"
 
 const defaultProps = {
