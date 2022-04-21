@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import vastramImg from "./../static/vastram-1.png";
+import Pagination from "./Pagination";
+import CTAButtons from "./CTAButtons";
+import ProjectList from "./ProjectList";
+import Hammer from "hammerjs";
 
 const defaultProps = {
   projects: [
@@ -23,7 +27,7 @@ const defaultProps = {
       description: [
         "Vastram is a complete e-commmerce site built for small businesses, the site provides excellent design and category display options.",
         "it is built with react and nodejs, the site uses bulma for implementing best in class design practices.",
-        "it has a complete authentication system with passport and JWT. we use mongoDB atlas for database which provides very flexible document structure for rapid developments and changing requirement structure.",
+        // "it has a complete authentication system with passport and JWT. we use mongoDB atlas for database which provides very flexible document structure for rapid developments and changing requirement structure.",
       ],
       demoLink: "https://www.google.com",
       githubLink: "",
@@ -81,164 +85,127 @@ const defaultProps = {
   ],
 };
 
+function getTranslateValues(index) {
+  let value = "translate-x-0";
+  switch (index) {
+    case 2:
+      value = "translate-x-[-100%]";
+      break;
+    case 3:
+      value = "translate-x-[-200%]";
+      break;
+  }
+  return value;
+}
+
 function Projects({ projects }) {
-  const maxIndex = Array.isArray(projects) ? projects.length - 1 : 0;
-  const [mouseOver, setMouseOver] = useState(false);
-  const [index, setIndex] = useState(0);
+  const numProjects = projects.length;
+  const [hammer, setHammer] = useState(null);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(1);
+  const projectRef = useRef();
 
-  useEffect(() => {
-    const wait = 1000;
-    let time = Date.now();
-
-    const scrollFunc = (e) => {
-      if (time + wait - Date.now() < 0) {
-        const delta = e.wheelDelta;
-        let listTraversed = false;
-        if (delta < 0 && index < maxIndex) {
-          setIndex(index + 1);
-        } else if (delta > 0 && index > 0) {
-          setIndex(index - 1);
-        } else if (delta !== 0) {
-          listTraversed = true;
-        }
-        if (mouseOver && !listTraversed) {
-          e.returnValue = false;
+  const wait = 100;
+  let time = Date.now();
+  const handleSwipe = (e) => {
+    if (time + wait - Date.now() < 0) {
+      if (e.type === "panright") {
+        if (currentProjectIndex > 1) {
+          setCurrentProjectIndex(currentProjectIndex - 1);
         }
         time = Date.now();
-        return false;
       } else {
-        e.returnValue = false;
-        return false;
+        if (currentProjectIndex < numProjects) {
+          setCurrentProjectIndex(currentProjectIndex + 1);
+        }
+        time = Date.now();
       }
-    };
-
-    document.querySelector("#projects").addEventListener("wheel", scrollFunc);
-
-    return () => {
-      document
-        .querySelector("#projects")
-        .removeEventListener("wheel", scrollFunc);
-    };
-  }, [mouseOver, index]);
+    }
+  };
 
   useEffect(() => {
-    console.log("index", index);
-    return () => {};
-  }, [index]);
+    if (projectRef && projectRef.current) {
+      let h = hammer;
+      if (!hammer) {
+        h = new Hammer(projectRef.current);
+        setHammer(h);
+      }
+      h.off("panleft panright", handleSwipe);
+      h.on("panleft panright", handleSwipe);
+    }
+  }, [projectRef, numProjects, currentProjectIndex]);
+
+  const handleClick = (_index) => {
+    _index > 0 && setCurrentProjectIndex(_index);
+  };
 
   return (
-    <div
-      className={"h-screen snap-y snap-mandatory overflow-hidden"}
-      onMouseEnter={() => setMouseOver(true)}
-      onMouseLeave={() => setMouseOver(false)}
-    >
-      <div
-        className={
-          "h-screen transition-all ease-in-out delay-200 duration-500 " +
-          (index === 0
-            ? "translate-y-0"
-            : index === 1
-            ? "translate-y-[-100%]"
-            : index === 2
-            ? "translate-y-[-200%]"
-            : "translate-y-[-300%]")
-        }
-      >
-        {projects.map((project, index) => (
-          <Project project={project} key={index} bgBlack={index % 2 === 1} />
-        ))}
+    <div className="h-screen snap-y snap-mandatory overflow-hidden">
+      <div className="box-border flex h-full p-2 pl-6 snap-center bg-custom-black">
+        <div className="w-1/4 hidden sm:block">
+          <ProjectList
+            projects={projects}
+            handleClick={handleClick}
+            index={currentProjectIndex}
+          />
+        </div>
+        <div
+          className="w-full sm:w-3/4 pr-4 sm:pr-0 relative"
+          // {...swipeHandlers}
+          ref={projectRef}
+        >
+          <div className="pb-8 h-full whitespace-nowrap overflow-x-hidden">
+            <div
+              className={
+                "h-full transition-all ease-in-out duration-300 " +
+                getTranslateValues(currentProjectIndex)
+              }
+            >
+              {projects.map((project, i) => (
+                <div className="inline-block h-full w-full" key={i}>
+                  <ProjectDetails project={project} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="absolute bottom-0 w-full">
+            <Pagination
+              currentPage={currentProjectIndex}
+              handleClick={handleClick}
+              totalPage={projects.length}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function Project({ project, bgBlack }) {
-  console.log({ bgBlack });
+function ProjectDetails({ project }) {
   return (
-    <div
-      className={
-        "box-border flex h-screen p-2 pl-6 snap-center " +
-        (bgBlack ? "bg-custom-black" : "bg-custom-green")
-      }
-    >
-      <div className="relative hidden w-1/4 justify-center sm:flex sm:flex-col sm:items-center">
-        <div className="absolute ring-2 ring-custom-green ring-offset-2 z-0 h-72 w-96 rounded-lg transition-all ease-in-out hover:z-10 sm:-left-60 md:-left-36 hover:sm:left-2 ">
+    <div className="flex whitespace-normal h-full items-center">
+      <div className={"h-[80vh] border border-l-custom-green"}></div>
+      <div className="m-2 flex flex-col h-full pl-4 py-0 sm:py-16 text-custom-green">
+        <div className={" text-7xl font-semibold text-custom-gray"}>
+          {project.projectNo}
+        </div>
+        <div className={" text-3xl font-semibold text-custom-green "}>
+          {project.title}
+        </div>
+        <div className="flex flex-grow flex-col justify-around text-custom-green">
+          <div className="max-w-xl space-y-3 pt-2">
+            {project.description.map((d, index) => (
+              <p key={index}>{d}</p>
+            ))}
+          </div>
+        </div>
+        <div className="box-border h-32 rounded-lg bg-custom-green ring-4 ring-custom-green sm:hidden">
           <img
             src={vastramImg}
             alt={project.images[0].alt}
             className="object-cover h-full w-full object-center rounded-lg"
           />
         </div>
-      </div>
-      <div className="ml-auto flex h-full sm:w-3/4 items-center">
-        <div
-          className={
-            "h-4/5 border " +
-            (bgBlack ? "border-l-custom-green" : "border-l-custom-black")
-          }
-        ></div>
-        <div className="m-2 flex flex-grow flex-col py-0 sm:py-16 text-custom-green">
-          <div className={"px-2 text-7xl font-semibold text-custom-gray"}>
-            {project.projectNo}
-          </div>
-          <div
-            className={
-              "px-2 text-3xl font-semibold " +
-              (bgBlack ? "text-custom-green" : "text-custom-black")
-            }
-          >
-            {project.title}
-          </div>
-          <div
-            className={
-              "flex flex-grow flex-col justify-around " +
-              (bgBlack ? "text-custom-green" : "text-custom-black")
-            }
-          >
-            <div className="max-w-xl space-y-3 px-2 pt-2">
-              {project.description.map((d, index) => (
-                <p key={index}>{d}</p>
-              ))}
-            </div>
-            <div className="mx-2 box-border h-32 rounded-lg bg-custom-green ring-4 ring-custom-gray sm:hidden"></div>
-          </div>
-          <CTAButtons project={project} bgBlack={bgBlack} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CTAButtons({ project, bgBlack }) {
-  return (
-    <div className="space-y-4 pt-4">
-      <div className="relative w-fit">
-        <a
-          href={project.demoLink}
-          target="_blank"
-          className={
-            "rounded-lg block px-2 py-2 text-lg ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg  before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-2 " +
-            (bgBlack
-              ? "before:bg-custom-gray text-custom-green ring-custom-gray border border-custom-green"
-              : "before:bg-custom-black text-custom-black ring-custom-black border border-custom-black")
-          }
-        >
-          View Demo
-        </a>
-      </div>
-      <div className="relative w-fit">
-        <a
-          href={project.githubLink}
-          target="_blank"
-          className={
-            "rounded-lg block px-2 py-2 font-mono text-lg ring-offset-2 before:absolute before:inset-0 before:origin-right before:scale-x-0 before:rounded-lg before:opacity-50 before:transition before:duration-300 hover:before:origin-left hover:before:scale-x-100 focus:ring-1 " +
-            (bgBlack
-              ? "before:bg-custom-gray text-custom-green ring-custom-gray border border-custom-green"
-              : "before:bg-custom-black text-custom-black ring-custom-black border border-custom-black")
-          }
-        >
-          Explore Code on Github
-        </a>
+        <CTAButtons project={project} />
       </div>
     </div>
   );
