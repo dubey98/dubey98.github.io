@@ -5,29 +5,54 @@ function ContactForm({ setShowingContactForm }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
+
+  const validateForm = () => {
+    let retValue = false;
+    if (
+      name &&
+      name.trim() !== "" &&
+      email &&
+      email.trim() !== "" &&
+      message &&
+      message.trim() !== ""
+    ) {
+      retValue = true;
+      setError(null);
+    } else retValue = false;
+    return retValue;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log({ name, email, message });
-    setShowingContactForm(false);
-    axios
-      .post("DUMMY_URL", {
-        name: name,
-        email: email,
-        message: message,
-      })
-      .then((res) => {
-        // console.log(res);
-        setShowingContactForm(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    if (validateForm()) {
+      axios
+        .post("https://glacial-falls-36910.herokuapp.com/portfolio-contact", {
+          name: name,
+          email: email,
+          message: message,
+        })
+        .then((res) => {
+          // console.log(res);
+          setShowingContactForm(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(
+            "Sorry, an Error Happened. please try to send email from the email provided above."
+          );
+          setShowingContactForm(false);
+        });
+    } else {
+      setError("please fill in all values");
+    }
   };
 
   return (
     <div className="h-fit mx-auto max-w-2xl text-custom-green">
       <form onSubmit={handleSubmit}>
+        {error && <div className="text-xs p-1">{error}</div>}
         <div className="p-1">
           <label htmlFor="name" className="block py-1 text-sm">
             Name
@@ -73,10 +98,16 @@ function ContactForm({ setShowingContactForm }) {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
-        <div className="p-1">
+        <div className="p-1 flex space-x-2">
+          <button
+            onClick={() => setShowingContactForm(false)}
+            className="md:hidden block transition-all ease-in-out p-2 border border-custom-gray rounded-md hover:bg-custom-gray hover:text-custom-black focus:ring-2 ring-custom-gray ring-offset-1"
+          >
+            Cancel
+          </button>
           <button
             type="submit"
-            className="block w-full transition-all ease-in-out p-2 border border-custom-green rounded-md hover:bg-custom-green hover:text-custom-black focus:ring-2 ring-custom-green ring-offset-1"
+            className="block flex-grow transition-all ease-in-out p-2 border border-custom-green rounded-md hover:bg-custom-green hover:text-custom-black focus:ring-2 ring-custom-green ring-offset-1"
           >
             Contact
           </button>
