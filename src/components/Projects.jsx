@@ -62,13 +62,16 @@ const defaultProps = {
 };
 
 function getTranslateValues(index) {
-  let value = "translate-x-0";
+  let value = "";
   switch (index) {
     case 2:
       value = "translate-x-[-100%]";
       break;
     case 3:
       value = "translate-x-[-200%]";
+      break;
+    default:
+      value = "translate-x-0";
       break;
   }
   return value;

@@ -34,6 +34,7 @@ function About() {
               <a
                 href="https://drive.google.com/file/d/18DjZiwQi_uJ-UKY9o1hAp27tXd4AlK_g/view?usp=sharing"
                 target={"_blank"}
+                rel="noreferrer"
               >
                 Download Resume
               </a>

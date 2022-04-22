@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Intro from "../components/main/Intro";
 import Projects from "../components/Projects";
-import AdditionalProjects from "../components/AdditionalProjects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 

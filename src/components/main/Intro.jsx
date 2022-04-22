@@ -1,5 +1,4 @@
 import React from "react";
-import Img from "./../../static/developer.svg";
 import developer from "./../../static/developer.png";
 
 function Intro() {
