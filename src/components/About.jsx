@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="bg-custom-black h-screen pl-6 p-2">
+    <div className="bg-custom-black h-full pl-6 p-2">
       <div className="flex items-center h-full sm:w-3/4 md:ml-auto">
         <div className="border border-l-custom-green h-5/6"></div>
         <div className="text-custom-green px-2 m-2 flex flex-col h-5/6">

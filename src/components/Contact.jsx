@@ -11,7 +11,7 @@ function Contact() {
   };
 
   return (
-    <div className="h-screen w-full">
+    <div className="h-full w-full">
       <div className="flex pl-6 p-2 items-center h-full">
         <div className="hidden md:block w-1/4">
           <div className="max-w-xs">

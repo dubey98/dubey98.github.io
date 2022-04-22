@@ -8,18 +8,18 @@ import Contact from "../components/Contact";
 function HomePage() {
   return (
     <div className="box-border snap-y overflow-y-auto h-screen snap-mandatory">
-      <section id="intro" className="h-screen flex snap-center flex-col">
+      <section id="intro" className="h-full flex snap-center flex-col">
         <Navbar />
         <Intro />
       </section>
-      <section id="projects" className="snap-start">
+      <section id="projects" className="snap-start h-full">
         <Projects />
         {/* <AdditionalProjects /> */}
       </section>
-      <section id="about" className="h-screen snap-center">
+      <section id="about" className="h-full snap-center">
         <About />
       </section>
-      <section id="contact" className="snap-center h-screen">
+      <section id="contact" className="snap-center h-full">
         <Contact />
       </section>
     </div>

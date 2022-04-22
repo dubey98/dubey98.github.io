@@ -118,8 +118,8 @@ function Projects({ projects }) {
   };
 
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-hidden">
-      <div className="box-border flex h-full p-2 pl-6 snap-center bg-custom-black">
+    <div className="h-full snap-y snap-mandatory overflow-hidden flex flex-col justify-center">
+      <div className="box-border flex  p-2 pl-6 snap-center bg-custom-black">
         <div className="w-1/4 hidden md:block">
           <ProjectList
             projects={projects}
