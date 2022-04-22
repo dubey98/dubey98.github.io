@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/662.608924e6.chunk.js","mappings":"qJAMA,UAJA,WACE,OAAO,cAAGA,KAAK,iCAAR","sources":["components/ContactEmail.jsx"],"sourcesContent":["import React from \"react\";\n\nfunction ContactEmail() {\n  return <a href=\"mailto:shivdubey.dev@gmail.com\">shivdubey.dev@gmail.com</a>;\n}\n\nexport default ContactEmail;\n"],"names":["href"],"sourceRoot":""}
