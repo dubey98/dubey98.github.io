@@ -51,7 +51,7 @@ function Navbar() {
           <a href="#projects">Projects</a>
         </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
-          <a href="#resume">Resume</a>
+          <a href="#about">Resume</a>
         </div>
         <div className="text-2xl px-6 whitespace-nowrap">SHIV DUBEY</div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
@@ -72,7 +72,7 @@ function Navbar() {
           <a href="#projects">Projects</a>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
-          <a href="#resume">Resume</a>
+          <a href="#about">Resume</a>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
           <a href="#about">About</a>
