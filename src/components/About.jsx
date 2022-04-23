@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TechTools from "./TechTools";
 
 function About() {
+  const [smallScreen, setSmallScreen] = useState(false);
+  useEffect(() => {
+    if (window.screen.height < 800) {
+      setSmallScreen(true);
+    }
+  }, []);
+
   return (
     <div className="bg-custom-black h-full pl-6 p-2">
       <div className="flex items-center h-full sm:w-3/4 md:ml-auto">
@@ -9,21 +16,27 @@ function About() {
         <div className="text-custom-green px-2 m-2 flex flex-col h-5/6 max-w-2xl">
           <div className="text-5xl uppercase font-semibold">About Me</div>
           <div className="max-w-4xl flex flex-col flex-grow justify-center">
-            <div className="italic font-serif space-y-2 pt-6">
+            <div
+              className={
+                smallScreen
+                  ? "italic font-serif space-y-1 text-sm pt-2"
+                  : "italic font-serif space-y-2 pt-6"
+              }
+            >
               <p className="">
-                I am a full stack developer and problem solver. i have a passion
-                for building things that work and scale. i have worked in close
-                relation with clients, understanding their expectations and
-                making it a reality.
+                I am a professional web developer from india currently working
+                with Cardekho. I have worked on designing and developing web
+                application and building robust infrastructure to support them.
               </p>
-              {/* <div className="italic text-sm border-2 text-center py-3">
-                First, solve the problem. Then, write the code.
-              </div> */}
               <p className="">
-                I have previously worked with <strong>Nagarro</strong> as a
-                software engineer, i am currently working at{" "}
-                <strong>CarDekho</strong> building awesome systems and expanding
-                my skillset.
+                I love solving real world problems with technology, implementing
+                innovative design and trying new things. I am currently working
+                with react, firebase and nodejs to build some interesting apps.
+              </p>
+              <p className="">
+                if you are looking to launch a website or have any interesting
+                ideas (or if want you to grad a coffee anytime), be sure to hit
+                me up.
               </p>
             </div>
             <div className="pt-0 md:pt-12">
@@ -44,7 +57,8 @@ function About() {
                       "firebase",
                       ".net",
                       "sqlserver",
-                      "mongoDb",
+                      "mongodb",
+                      "tailwind",
                     ]}
                     containerCls="text-md"
                   />

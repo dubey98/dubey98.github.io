@@ -139,7 +139,7 @@ function Projects({ projects }) {
           <div className="pb-8 h-full whitespace-nowrap overflow-x-hidden">
             <div
               className={
-                "h-full transition-all ease-in-out duration-300 " +
+                "h-full transition-all ease-in-out duration-300 cursor-ew-resize " +
                 getTranslateValues(currentProjectIndex)
               }
             >

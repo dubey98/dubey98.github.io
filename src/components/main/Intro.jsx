@@ -9,12 +9,12 @@ function Intro() {
     >
       <div className="flex-1 flex flex-col justify-center">
         <div className="h-fit pl-10 sm:pl-4 text-custom-green font-semibold text-3xl sm:text-4xl uppercase max-w-4xl pr-2">
-          <span className="text-6xl text-custom-gray">HI!</span>
+          <span className="text-6xl text-custom-gray">HI!!</span>
           <br />
           I'm SHIV DUBEY
           <br />
           Passionate
-          <span className="hover:text-custom-gray"> full stack developer</span>,
+          <span className="hover:text-custom-gray"> full stack developer, </span>
           keen on developing
           <span className="hover:text-custom-gray"> scalable</span> and
           <div className="hover:text-custom-gray">maintainable</div> systems.

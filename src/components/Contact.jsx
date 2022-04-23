@@ -38,7 +38,7 @@ function Contact() {
                 <div className="max-w-xs p-2">
                   <div
                     onClick={handleWriteButtonClick}
-                    className="flex border border-custom-green rounded-lg"
+                    className="flex border border-custom-green rounded-lg cursor-pointer"
                   >
                     <div className="h-16 w-16 flex items-center justify-center">
                       <img
