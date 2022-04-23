@@ -6,6 +6,7 @@ import Pagination from "./Pagination";
 import CTAButtons from "./CTAButtons";
 import ProjectList from "./ProjectList";
 import Hammer from "hammerjs";
+import TechTools from "./TechTools";
 
 const defaultProps = {
   projects: [
@@ -25,6 +26,7 @@ const defaultProps = {
       ],
       demoLink: "https://shiv-vastram.herokuapp.com/",
       githubLink: "https://github.com/dubey98/vastram",
+      toolsArray: ["react", "nodejs", "mongodb"],
     },
     {
       images: [
@@ -41,6 +43,7 @@ const defaultProps = {
       ],
       demoLink: "https://dubey98.github.io/karma/",
       githubLink: "https://github.com/dubey98/karma",
+      toolsArray: ["react", "firebase"],
     },
     {
       images: [
@@ -57,6 +60,7 @@ const defaultProps = {
       ],
       demoLink: "https://hotel-book-dev.web.app/",
       githubLink: "https://github.com/dubey98/fb-react-hotel",
+      toolsArray: ["react", "tailwind"],
     },
   ],
 };
@@ -176,6 +180,9 @@ function ProjectDetails({ project }) {
               <p key={index}>{d}</p>
             ))}
           </div>
+        </div>
+        <div className="flex flex-wrap py-2">
+          <TechTools toolsArray={project.toolsArray} containerCls="text-sm" />
         </div>
         <div className="box-border h-32 sm:h-56 rounded-lg ring-4 ring-custom-green relative">
           <img

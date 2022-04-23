@@ -1,11 +1,12 @@
 import React from "react";
+import TechTools from "./TechTools";
 
 function About() {
   return (
     <div className="bg-custom-black h-full pl-6 p-2">
       <div className="flex items-center h-full sm:w-3/4 md:ml-auto">
         <div className="border border-l-custom-green h-5/6"></div>
-        <div className="text-custom-green px-2 m-2 flex flex-col h-5/6">
+        <div className="text-custom-green px-2 m-2 flex flex-col h-5/6 max-w-2xl">
           <div className="text-5xl uppercase font-semibold">About Me</div>
           <div className="max-w-4xl flex flex-col flex-grow justify-center">
             <div className="italic font-serif space-y-2 pt-6">
@@ -25,11 +26,33 @@ function About() {
                 my skillset.
               </p>
             </div>
-            <div className="pt-12">
-              <TechTools />
+            <div className="pt-0 md:pt-12">
+              <div className="p-2 pl-0">
+                <div className="">
+                  Languages :
+                  <TechTools
+                    toolsArray={["js", "c++", "c#", "sql"]}
+                    containerCls="text-md"
+                  />
+                </div>
+                <div className="">
+                  Technologies :
+                  <TechTools
+                    toolsArray={[
+                      "react",
+                      "nodejs",
+                      "firebase",
+                      ".net",
+                      "sqlserver",
+                      "mongoDb",
+                    ]}
+                    containerCls="text-md"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="w-fit py-6" id="resume">
+          <div className="w-fit py-2 sm:py-6" id="resume">
             <button className="border-2 px-4 py-2 rounded-md uppercase">
               <a
                 href="https://drive.google.com/file/d/18DjZiwQi_uJ-UKY9o1hAp27tXd4AlK_g/view?usp=sharing"
@@ -41,26 +64,6 @@ function About() {
             </button>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function TechTools() {
-  return (
-    <div className="p-2 pl-0">
-      <span className="font-semibold">Technologies i have worked with:</span>
-      <br />
-      <div className="text-lg">
-        <span className="">
-          <i className="fab fa-react pr-1">
-            <span className="hidden">React</span>
-          </i>
-          <i className="fab fa-node-js pl-1 pr-1"></i>
-          <i className="fab fa-js pl-1 pr-1"></i>
-          <i className="fab fa-css3 pl-1 pr-1"></i>
-          Mongo Db, Sql Server, .NET, Tailwind, Bulma
-        </span>
       </div>
     </div>
   );
