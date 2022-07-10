@@ -3,7 +3,7 @@ import React from "react";
 function Pagination({ currentPage, totalPage, handleClick }) {
   const generatePages = () => {
     const pages = [];
-    for (let i = 1; i <= totalPage; i++) {
+    for (let i = 0; i < totalPage; i++) {
       pages.push(
         <div
           className={

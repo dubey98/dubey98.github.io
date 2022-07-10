@@ -10,11 +10,11 @@ function ProjectList({ projects, handleClick, index }) {
               "mx-auto block w-3/4 rounded-lg border py-2 px-6 " +
               "ring-custom-green ring-offset-0 focus:ring-1 " +
               " border-custom-gray hover:border-custom-green " +
-              (_index === index - 1
+              (_index === index
                 ? "bg-custom-green text-custom-black"
                 : "text-custom-green")
             }
-            onClick={() => handleClick(_index + 1)}
+            onClick={() => handleClick(_index)}
           >
             {project.title}
           </button>

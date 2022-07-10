@@ -20,11 +20,12 @@ function Intro() {
           <div className="hover:text-custom-gray">maintainable</div> systems.
         </div>
       </div>
-      <div className="w-1/2 h-full hidden md:block">
+      <div className="w-1/2 h-full hidden md:block relative">
         <Image
           src={developer}
-          layout=""
+          layout="fill"
           alt="developer working beside a lamp"
+          objectFit="contain"
           priority
         />
       </div>

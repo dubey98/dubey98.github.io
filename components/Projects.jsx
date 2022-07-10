@@ -6,7 +6,6 @@ import hotelImg from "./../public/hotel.png";
 import Pagination from "./Pagination";
 import CTAButtons from "./CTAButtons";
 import ProjectList from "./ProjectList";
-// import Hammer from "hammerjs";
 import TechTools from "./TechTools";
 
 const defaultProps = {
@@ -69,10 +68,10 @@ const defaultProps = {
 function getTranslateValues(index) {
   let value = "";
   switch (index) {
-    case 2:
+    case 1:
       value = "translate-x-[-100%]";
       break;
-    case 3:
+    case 2:
       value = "translate-x-[-200%]";
       break;
     default:
@@ -84,43 +83,27 @@ function getTranslateValues(index) {
 
 function Projects({ projects }) {
   const numProjects = projects.length;
-  const [hammer, setHammer] = useState(null);
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(1);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [timerStatus, setTimerStatus] = useState(true);
   const projectRef = useRef();
 
-  const wait = 100;
-  let time = Date.now();
-  const handleSwipe = (e) => {
-    if (time + wait - Date.now() < 0) {
-      if (e.type === "panright") {
-        if (currentProjectIndex > 1) {
-          setCurrentProjectIndex(currentProjectIndex - 1);
-        }
-        time = Date.now();
-      } else {
-        if (currentProjectIndex < numProjects) {
-          setCurrentProjectIndex(currentProjectIndex + 1);
-        }
-        time = Date.now();
-      }
+  useEffect(() => {
+    let slideTimer = null;
+    if (timerStatus) {
+      slideTimer = setInterval(() => {
+        setCurrentProjectIndex((currentProjectIndex + 1) % numProjects);
+      }, 3000);
+    } else {
+      clearInterval(slideTimer);
     }
-  };
-
-  // useEffect(() => {
-  //   if (projectRef && projectRef.current) {
-  //     let h = hammer;
-  //     if (!hammer) {
-  //       h = new Hammer(projectRef.current);
-  //       h = {};
-  //       setHammer(h);
-  //     }
-  //     h.off("panleft panright", handleSwipe);
-  //     h.on("panleft panright", handleSwipe);
-  //   }
-  // }, [projectRef, numProjects, currentProjectIndex]);
+    return () => {
+      clearInterval(slideTimer);
+    };
+  }, [currentProjectIndex, numProjects, timerStatus]);
 
   const handleClick = (_index) => {
-    _index > 0 && setCurrentProjectIndex(_index);
+    setTimerStatus(false);
+    setCurrentProjectIndex(_index);
   };
 
   return (
@@ -133,15 +116,11 @@ function Projects({ projects }) {
             index={currentProjectIndex}
           />
         </div>
-        <div
-          className="w-full md:w-3/4 pr-4 sm:pr-0 relative"
-          // {...swipeHandlers}
-          ref={projectRef}
-        >
+        <div className="w-full md:w-3/4 pr-4 sm:pr-0 relative" ref={projectRef}>
           <div className="pb-8 h-full whitespace-nowrap overflow-x-hidden">
             <div
               className={
-                "h-full transition-all ease-in-out duration-300 cursor-ew-resize " +
+                "h-full transition-all delay-100 ease-out duration-500 " +
                 getTranslateValues(currentProjectIndex)
               }
             >
@@ -156,7 +135,7 @@ function Projects({ projects }) {
             <Pagination
               currentPage={currentProjectIndex}
               handleClick={handleClick}
-              totalPage={projects.length}
+              totalPage={numProjects}
             />
           </div>
         </div>

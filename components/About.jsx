@@ -28,14 +28,14 @@ function About() {
                 with Cardekho. I have worked on designing and developing web
                 application and building robust infrastructure to support them.
               </p>
-              <p className="">
+              <p className="hidden">
                 I love solving real world problems with technology, implementing
                 innovative design and trying new things. I am currently working
                 with react, firebase and nodejs to build some interesting apps.
               </p>
               <p className="">
                 if you are looking to launch a website or have any interesting
-                ideas (or if want you to grad a coffee anytime), be sure to hit
+                ideas (or if want you to grab a coffee anytime), be sure to hit
                 me up.
               </p>
             </div>
