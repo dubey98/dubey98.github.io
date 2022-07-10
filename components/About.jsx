@@ -28,7 +28,7 @@ function About() {
                 with Cardekho. I have worked on designing and developing web
                 application and building robust infrastructure to support them.
               </p>
-              <p className="hidden">
+              <p className="hidden sm:block">
                 I love solving real world problems with technology, implementing
                 innovative design and trying new things. I am currently working
                 with react, firebase and nodejs to build some interesting apps.
