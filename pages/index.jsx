@@ -5,7 +5,6 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Script from "next/script";
-import * as json from "./../data/data.json";
 
 export default function Home({ data }) {
   return (
@@ -52,7 +51,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/../public/vastram-1.png",
+            src: "https://i.ibb.co/LRM52mq/vastram-1.png",
             alt: "Vastram demo image",
           },
         ],
@@ -69,7 +68,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/../public/karma.png",
+            src: "https://i.ibb.co/nrRQwdy/karma.png",
             alt: "Karma demo image",
           },
         ],
@@ -86,7 +85,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/../public/hotel.png",
+            src: "https://i.ibb.co/qYzjvDJ/hotel.png",
             alt: "Hotel Website snapshot",
           },
         ],

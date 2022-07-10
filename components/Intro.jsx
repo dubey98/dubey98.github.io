@@ -1,5 +1,5 @@
 import Image from "next/image";
-import developer from "./../public/developer.png";
+import { myLoader } from "../helpers/nextHelpers";
 
 function Intro() {
   return (
@@ -11,7 +11,7 @@ function Intro() {
         <div className="h-fit pl-10 sm:pl-4 text-custom-green font-semibold text-3xl sm:text-4xl uppercase max-w-4xl pr-2">
           <span className="text-6xl text-custom-gray">HI!!</span>
           <br />
-          I'm SHIV DUBEY
+          I&apos;m SHIV DUBEY
           <br />
           Passionate
           <span className="hover:text-custom-gray">full stack developer,</span>
@@ -22,11 +22,12 @@ function Intro() {
       </div>
       <div className="w-1/2 h-full hidden md:block relative">
         <Image
-          src={developer}
+          src="https://i.ibb.co/1r6LQjd/developer.png"
           layout="fill"
           alt="developer working beside a lamp"
           objectFit="contain"
           priority
+          loader={myLoader}
         />
       </div>
     </div>
