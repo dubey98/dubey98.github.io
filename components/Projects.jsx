@@ -8,63 +8,6 @@ import CTAButtons from "./CTAButtons";
 import ProjectList from "./ProjectList";
 import TechTools from "./TechTools";
 
-const defaultProps = {
-  projects: [
-    {
-      images: [
-        {
-          src: vastramImg,
-          alt: "Vastram demo image",
-        },
-      ],
-      projectNo: "01",
-      title: "VASTRAM",
-      description: [
-        "Vastram is a complete e-commmerce site built for small businesses, the site provides excellent design and category display options.",
-        "it is built with react and nodejs, the site uses bulma for implementing best in class design practices.",
-        // "it has a complete authentication system with passport and JWT. we use mongoDB atlas for database which provides very flexible document structure for rapid developments and changing requirement structure.",
-      ],
-      demoLink: "https://shiv-vastram.herokuapp.com/",
-      githubLink: "https://github.com/dubey98/vastram",
-      toolsArray: ["react", "nodejs", "mongodb"],
-    },
-    {
-      images: [
-        {
-          src: karmaImg,
-          alt: "Karma demo image",
-        },
-      ],
-      projectNo: "02",
-      title: "KARMA",
-      description: [
-        "Built with react and firebase, karma is a modern planner app with support for projects, tasks and timeline.",
-        "Karma utilises firebase on the backend for authentication and managing data.",
-      ],
-      demoLink: "https://dubey98.github.io/karma/",
-      githubLink: "https://github.com/dubey98/karma",
-      toolsArray: ["react", "firebase"],
-    },
-    {
-      images: [
-        {
-          src: hotelImg,
-          alt: "Hotel Website snapshot",
-        },
-      ],
-      projectNo: "03",
-      title: "Hotel Website",
-      description: [
-        "This beautifull website is built for needs of a hotel chain supporting multiple locations and restaurant",
-        "it's built with react and tailwind to provide faster load times and a smooth experience.",
-      ],
-      demoLink: "https://hotel-book-dev.web.app/",
-      githubLink: "https://github.com/dubey98/fb-react-hotel",
-      toolsArray: ["react", "tailwind"],
-    },
-  ],
-};
-
 function getTranslateValues(index) {
   let value = "";
   switch (index) {
@@ -179,5 +122,4 @@ function ProjectDetails({ project }) {
   );
 }
 
-Projects.defaultProps = defaultProps;
 export default Projects;

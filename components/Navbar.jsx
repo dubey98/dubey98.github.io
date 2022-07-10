@@ -53,7 +53,9 @@ function Navbar() {
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
           <a href="#about">Resume</a>
         </div>
-        <div className="text-2xl px-6 whitespace-nowrap">SHIV DUBEY</div>
+        <div className="text-2xl px-6 whitespace-nowrap">
+          <a href="#">SHIV DUBEY</a>
+        </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
           <a href="#about">About</a>
         </div>
