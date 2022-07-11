@@ -6,13 +6,12 @@ function BlogCard({ blog }) {
     <div className="rounded-lg bg-custom-charcoal p-4">
       <div className="flex">
         <div className="flex items-center justify-center">
-          <div className="mx-2 h-10 w-10 rounded-full bg-custom-green">
-            {/* author image will go here */}
+          <div className="mx-2 h-10 w-10 overflow-hidden rounded-full bg-custom-green relative">
             <Image
               src={blog.authorImageSrc}
               alt={blog.author + " profile image"}
               layout="fill"
-              
+              objectFit="contain"
             />
           </div>
         </div>
@@ -22,7 +21,7 @@ function BlogCard({ blog }) {
         </div>
         <div className="flex items-center pr-2">
           <button>
-            <i className="fas fa-share"></i>
+            <i className="fas fa-share-square"></i>
           </button>
         </div>
       </div>
@@ -31,9 +30,13 @@ function BlogCard({ blog }) {
           <a href="#">{blog.title}</a>
         </h1>
         <div className="flex space-x-2 text-sm sm:text-base">
-          <div className="border-1 rounded-xl border px-2">#tags</div>
-          <div className="border-1 rounded-xl border px-2">#tags</div>
-          <div className="border-1 rounded-xl border px-2">#tags</div>
+          {blog.tags.map((tag, index) => {
+            return (
+              <button className="border-1 rounded-xl border px-2" key={index}>
+                #{tag.displayValue}
+              </button>
+            );
+          })}
         </div>
         <div className="flex justify-between pt-2">
           <div className="flex items-center space-x-2 py-1 text-sm">
