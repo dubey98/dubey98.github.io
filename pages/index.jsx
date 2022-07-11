@@ -5,7 +5,6 @@ import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Script from "next/script";
-import * as json from "./../data/data.json";
 
 export default function Home({ data }) {
   return (
