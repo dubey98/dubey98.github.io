@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 function Navbar() {
@@ -51,7 +52,9 @@ function Navbar() {
           <a href="#projects">Projects</a>
         </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
-          <a href="#about">Resume</a>
+          <Link href={"/blogs"}>
+            <a>BLOGS</a>
+          </Link>
         </div>
         <div className="text-2xl px-6 whitespace-nowrap">
           <a href="#">SHIV DUBEY</a>
@@ -74,7 +77,9 @@ function Navbar() {
           <a href="#projects">Projects</a>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
-          <a href="#about">Resume</a>
+          <Link href={"/blogs"}>
+            <a>BLOGS</a>
+          </Link>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
           <a href="#about">About</a>

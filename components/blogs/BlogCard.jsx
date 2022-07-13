@@ -32,10 +32,10 @@ function BlogCard({ blog }) {
             <a>{blog.title}</a>
           </Link>
         </h1>
-        <div className="flex space-x-2 text-sm sm:text-base">
+        <div className="flex text-sm sm:text-base flex-wrap -ml-1">
           {blog.tags.map((tag, index) => {
             return (
-              <button className="border-1 rounded-xl border px-2" key={index}>
+              <button className="border-1 m-1 rounded-xl border px-2" key={index}>
                 #{tag.displayValue}
               </button>
             );
