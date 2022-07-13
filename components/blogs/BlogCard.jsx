@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function BlogCard({ blog }) {
   return (
@@ -27,7 +28,9 @@ function BlogCard({ blog }) {
       </div>
       <div className="pl-16">
         <h1 className="py-1 sm:py-4 text-2xl sm:text-3xl font-semibold text-custom-peri">
-          <a href="#">{blog.title}</a>
+          <Link href={"/blogs/" + blog.slug}>
+            <a>{blog.title}</a>
+          </Link>
         </h1>
         <div className="flex space-x-2 text-sm sm:text-base">
           {blog.tags.map((tag, index) => {

@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Script from "next/script";
+import Link from "next/link";
 import BlogCard from "./../components/blogs/BlogCard";
 import BlogFilter from "../components/blogs/BlogFilter";
+import { getAllBlogs } from "../lib/api";
 
 function blogs({ blogs }) {
   return (
@@ -30,10 +32,18 @@ function blogs({ blogs }) {
           <div className="bg-custom-charcoal rounded-lg mt-1">
             <h1 className="px-4 py-2 font-semibold text-lg">Other Topics</h1>
             <div className="flex p-2 flex-wrap">
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">Programming</div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">React</div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">Next</div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">JavaScript</div>
+              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
+                Programming
+              </div>
+              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
+                React
+              </div>
+              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
+                Next
+              </div>
+              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
+                JavaScript
+              </div>
             </div>
           </div>
         </aside>
@@ -43,38 +53,13 @@ function blogs({ blogs }) {
 }
 
 export async function getStaticProps() {
+  const blogs = await getAllBlogs();
+
   const data = {
     blogs: [
-      {
-        id: 1,
-        author: "Shiv Dubey",
-        authorImageSrc: "https://bulma.io/images/placeholders/128x128.png",
-        datePublished: new Date().toJSON(),
-        title: "How to Learn Programming",
-        numOfLikes: 24,
-        numOfComments: 7,
-        tags: [
-          { displayValue: "programming" },
-          { displayValue: "react" },
-          { displayValue: "next" },
-          { displayValue: "js" },
-        ],
-      },
-      {
-        id: 2,
-        author: "Shiv Dubey",
-        authorImageSrc: "https://bulma.io/images/placeholders/128x128.png",
-        datePublished: new Date().toJSON(),
-        title: "How to Learn Programming",
-        numOfLikes: 24,
-        numOfComments: 7,
-        tags: [
-          { displayValue: "programming" },
-          { displayValue: "react" },
-          { displayValue: "next" },
-          { displayValue: "js" },
-        ],
-      },
+      ...blogs.map((blog) => {
+        return blog.data;
+      }),
     ],
   };
   return { props: { blogs: data.blogs } };
