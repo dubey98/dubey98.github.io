@@ -1,6 +1,7 @@
 import React from "react";
+import { getPostBySlug } from "../../lib/api";
 
-function Blog({ blog }) {
+function Blog({ blog, data }) {
   return (
     <div className="bg-custom-black text-custom-green min-h-screen">
       <div className="px-4 py-12 max-w-4xl mx-auto">
@@ -28,17 +29,18 @@ function Blog({ blog }) {
             );
           })}
         </div>
-        <div className="space-y-2 pt-6">
-          {blog.content}
-        </div>
+        <div className="space-y-2 pt-6">{blog.content}</div>
       </div>
     </div>
   );
 }
 
 export async function getStaticProps({ params }) {
+  const data = await getPostBySlug(params.slug);
+
   return {
     props: {
+      data: JSON.stringify(data),
       blog: {
         id: 1,
         author: "Shiv Dubey",
