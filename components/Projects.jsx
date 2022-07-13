@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import vastramImg from "./../public/vastram-1.png";
-import karmaImg from "./../public/karma.png";
-import hotelImg from "./../public/hotel.png";
+// import vastramImg from "./../public/vastram-1.png";
+// import karmaImg from "./../public/karma.png";
+// import hotelImg from "./../public/hotel.png";
 import Pagination from "./Pagination";
 import CTAButtons from "./CTAButtons";
 import ProjectList from "./ProjectList";
 import TechTools from "./TechTools";
+import { myLoader } from "../helpers/nextHelpers";
 
 function getTranslateValues(index) {
   let value = "";
@@ -114,6 +115,7 @@ function ProjectDetails({ project }) {
             layout="fill"
             src={project.images[0].src}
             alt={project.images[0].alt}
+            loader={myLoader}
           />
         </div>
         <CTAButtons project={project} />
