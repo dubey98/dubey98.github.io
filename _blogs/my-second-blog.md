@@ -1,9 +1,9 @@
 ---
-id: 1
+id: 2
 author: "Shiv Dubey"
 authorImageSrc: "https://bulma.io/images/placeholders/128x128.png"
 datePublished: 2022-08-07
-title: "How to Learn Programming"
+title: The Second Blog About how to forget programming
 numOfLikes: 24
 numOfComments: 7
 tags:
@@ -13,7 +13,7 @@ tags:
   - displayValue: "js"
 ---
 
-# Hi
+# Hi ~~Mars~~Venus!
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci accusamus similique, delectus atque tempora quo deleniti? Quo necessitatibus natus beatae! Aliquam, minima dolor eaque fuga nobis aspernatur totam commodi!
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, harum ab? Laboriosam nam magnam debitis illo nihil doloremque numquam reiciendis commodi ipsam nisi sed eum ipsa autem, labore architecto explicabo.
@@ -22,10 +22,3 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, harum ab? Labori
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, harum ab? Laboriosam nam magnam debitis illo nihil doloremque numquam reiciendis commodi ipsam nisi sed eum ipsa autem, labore architecto explicabo.
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, harum ab? Laboriosam nam magnam debitis illo nihil doloremque numquam reiciendis commodi ipsam nisi sed eum ipsa autem, labore architecto explicabo.
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, harum ab? Laboriosam nam magnam debitis illo nihil doloremque numquam reiciendis commodi ipsam nisi sed eum ipsa autem, labore architecto explicabo.
-
-> this is a qoute from me
-
-```js
-const i = 0;
-const j = 0;
-```

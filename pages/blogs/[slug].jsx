@@ -1,8 +1,9 @@
 import React from "react";
-import { getPostBySlug } from "../../lib/api";
+import { getBlogBySlug, getBlogSlugs } from "../../lib/api";
+import markdownStyles from "./markdown.module.scss";
 
 function Blog({ blog, data }) {
-  return (
+  return blog ? (
     <div className="bg-custom-black text-custom-green min-h-screen">
       <div className="px-4 py-12 max-w-4xl mx-auto">
         <div className="flex">
@@ -29,54 +30,39 @@ function Blog({ blog, data }) {
             );
           })}
         </div>
-        <div className="space-y-2 pt-6">{blog.content}</div>
+        <div className="pt-6">
+          <div
+            className={markdownStyles["markdown"]}
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          ></div>
+        </div>
       </div>
     </div>
-  );
+  ) : null;
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getPostBySlug(params.slug);
-
+  const fileContent = await getBlogBySlug(params.slug);
   return {
     props: {
-      data: JSON.stringify(data),
       blog: {
-        id: 1,
-        author: "Shiv Dubey",
-        authorImageSrc: "https://bulma.io/images/placeholders/128x128.png",
-        datePublished: new Date().toJSON(),
-        title: "How to Learn Programming",
-        numOfLikes: 24,
-        numOfComments: 7,
-        tags: [
-          { displayValue: "programming" },
-          { displayValue: "react" },
-          { displayValue: "next" },
-          { displayValue: "js" },
-        ],
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, atque facilis iure soluta dicta aliquam corporis eligendi quisquam sint nihil, in officia vel, consequuntur doloremque autem veniam. Consectetur, esse nihil",
+        ...fileContent.data,
+        content: fileContent.value,
       },
     },
   };
 }
 
 export async function getStaticPaths() {
-  const data = [];
+  const blogSlugs = getBlogSlugs();
   return {
-    paths: [
-      {
+    paths: blogSlugs.map((slug) => {
+      return {
         params: {
-          slug: "my-first-blog",
+          slug,
         },
-      },
-      {
-        params: {
-          slug: "my-second-blog",
-        },
-      },
-    ],
+      };
+    }),
     fallback: true,
   };
 }
