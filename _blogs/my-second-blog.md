@@ -1,7 +1,7 @@
 ---
 id: 2
 author: "Shiv Dubey"
-authorImageSrc: "https://bulma.io/images/placeholders/128x128.png"
+authorImageSrc: "https://i.ibb.co/6DYLzT2/professional.png"
 datePublished: 2022-08-07
 title: The Second Blog About how to forget programming
 numOfLikes: 24

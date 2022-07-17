@@ -1,7 +1,7 @@
 ---
 id: 1
 author: "Shiv Dubey"
-authorImageSrc: "https://bulma.io/images/placeholders/128x128.png"
+authorImageSrc: "https://i.ibb.co/6DYLzT2/professional.png"
 datePublished: 2022-08-07
 title: "How to Learn Programming"
 numOfLikes: 24
@@ -11,6 +11,7 @@ tags:
   - displayValue: "react"
   - displayValue: "next"
   - displayValue: "js"
+shortDescription: this blog will teach beginner programmers how to code
 ---
 
 # Hi

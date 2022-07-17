@@ -1,43 +1,65 @@
+import Head from "next/head";
+import Image from "next/image";
 import React from "react";
+import { myLoader } from "../../helpers/nextHelpers";
 import { getBlogBySlug, getBlogSlugs } from "../../lib/api";
 
 function Blog({ blog }) {
-  return blog ? (
-    <div className="bg-custom-black text-custom-green min-h-screen">
-      <div className="px-4 py-12 max-w-4xl mx-auto">
-        <div className="flex">
-          <div className="flex items-center justify-center">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-custom-green"></div>
-          </div>
-          <div className="ml-2 flex-grow pl-2">
-            <h3 className="font-medium">{blog.author}</h3>
-            <p className="text-xs">{blog.datePublished}</p>
-          </div>
-        </div>
-        <h1 className="py-4 text-4xl font-semibold text-custom-peri">
-          {blog.title}
-        </h1>
-        <div className="-ml-1 flex pb-2 flex-wrap">
-          {blog.tags.map((tag, index) => {
-            return (
-              <div
-                className="m-1 rounded-lg border border-black px-2 bg-custom-green text-custom-black"
-                key={index}
-              >
-                #{tag.displayValue}
+  return (
+    <div>
+      <Head>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.shortDescription} />
+        <meta
+          name="keywords"
+          content={blog.tags.map((tag) => tag.displayValue).join(" ,")}
+        />
+      </Head>
+      <main>
+        <div className="bg-custom-black text-custom-green min-h-screen">
+          <div className="px-4 py-12 max-w-4xl mx-auto">
+            <div className="flex">
+              <div className="flex items-center justify-center">
+                <div className="relative h-8 w-8 overflow-hidden rounded-full outline-2 outline-custom-green outline">
+                  <Image
+                    src={blog.authorImageSrc}
+                    alt={blog.author + " image"}
+                    layout="fill"
+                    loader={myLoader}
+                  />
+                </div>
               </div>
-            );
-          })}
+              <div className="ml-2 flex-grow pl-2">
+                <h3 className="font-medium">{blog.author}</h3>
+                <p className="text-xs">{blog.datePublished}</p>
+              </div>
+            </div>
+            <h1 className="py-4 text-4xl font-semibold text-custom-peri">
+              {blog.title}
+            </h1>
+            <div className="-ml-1 flex pb-2 flex-wrap">
+              {blog.tags.map((tag, index) => {
+                return (
+                  <div
+                    className="m-1 rounded-lg border border-black px-2 bg-custom-green text-custom-black"
+                    key={index}
+                  >
+                    #{tag.displayValue}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="pt-6">
+              <article
+                className="prose"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+              ></article>
+            </div>
+          </div>
         </div>
-        <div className="pt-6">
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-          ></div>
-        </div>
-      </div>
+      </main>
     </div>
-  ) : null;
+  );
 }
 
 export async function getStaticProps({ params }) {

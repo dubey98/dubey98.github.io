@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Script from "next/script";
-import Link from "next/link";
 import BlogCard from "./../components/blogs/BlogCard";
 import BlogFilter from "../components/blogs/BlogFilter";
 import { getAllBlogs } from "../lib/api";
@@ -20,7 +19,7 @@ function blogs({ blogs }) {
         strategy="lazyOnload"
       />
       <main className="lg:ml-36 pt-10 text-custom-green min-h-screen flex">
-        <section className="flex-grow max-w-3xl">
+        <section className="flex-grow max-w-2xl">
           <BlogFilter />
           <div className="space-y-2 p-2">
             {blogs.map((blog) => {
@@ -28,9 +27,9 @@ function blogs({ blogs }) {
             })}
           </div>
         </section>
-        <aside className="hidden md:block flex-grow max-w-sm mt-12">
-          <div className="bg-custom-charcoal rounded-lg mt-1">
-            <h1 className="px-4 py-2 font-semibold text-lg">Other Topics</h1>
+        <aside className="hidden md:block flex-grow max-w-xs mt-12">
+          <div className="rounded-lg mt-1">
+            <h1 className="px-4 py-2 font-semibold text-xl">Other Topics</h1>
             <div className="flex p-2 flex-wrap">
               <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
                 Programming

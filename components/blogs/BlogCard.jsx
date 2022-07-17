@@ -1,19 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { myLoader } from "../../helpers/nextHelpers";
 
 function BlogCard({ blog }) {
   return (
     <div className="border-b border-custom-peri">
-      <div className="rounded-lg px-4 py-2">
+      <div className="rounded-lg px-4 py-2 sm:py-4">
         <div className="flex">
           <div className="flex items-center justify-center">
-            <div className="mx-2 h-8 w-8 overflow-hidden rounded-full bg-custom-green relative">
+            <div className="mx-2 h-8 w-8 overflow-hidden rounded-full bg-custom-green relative outline-2 outline-custom-green outline">
               <Image
                 src={blog.authorImageSrc}
                 alt={blog.author + " profile image"}
                 layout="fill"
                 objectFit="contain"
+                loader={myLoader}
               />
             </div>
           </div>
@@ -28,7 +30,7 @@ function BlogCard({ blog }) {
           </div>
         </div>
         <div className="pl-2">
-          <h1 className="py-1 sm:py-2 text-xl text-custom-peri">
+          <h1 className="py-1 sm:py-2 text-xl sm:text-2xl text-custom-peri">
             <Link href={"/blogs/" + blog.slug}>
               <a>{blog.title}</a>
             </Link>
@@ -42,8 +44,7 @@ function BlogCard({ blog }) {
               );
             })}
           </div>
-          <div className="flex justify-between pt-2">
-            {/* <div className="flex items-center space-x-2 py-1 text-sm"> */}
+          {/* <div className="flex justify-between pt-2">
             <div className="inline-block">
               <i className="fas fa-heart pr-2"></i> {blog.numOfLikes} Likes
             </div>
@@ -51,8 +52,7 @@ function BlogCard({ blog }) {
               <i className="fas fa-comments px-2"></i>
               {blog.numOfComments} Comments
             </div>
-            {/* </div> */}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
