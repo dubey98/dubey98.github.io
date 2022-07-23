@@ -14,7 +14,7 @@ function Intro() {
           I&apos;m SHIV DUBEY
           <br />
           Passionate
-          <span className="hover:text-custom-gray">full stack developer,</span>
+          <span className="hover:text-custom-gray"> Full Stack developer,</span>
           keen on developing
           <span className="hover:text-custom-gray"> scalable</span> and
           <div className="hover:text-custom-gray">maintainable</div> systems.

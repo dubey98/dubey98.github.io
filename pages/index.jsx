@@ -15,7 +15,11 @@ export default function Home({ data }) {
         <meta name="theme-color" content="#211E27" />
         <meta
           name="description"
-          content="Shiv Dubey: Full Stack Web Developer"
+          content="PortFolio of Shiv Dubey, Full Stack Developer"
+        />
+        <meta
+          name="keywords"
+          content="Shiv Dubey,developer,full-stack,portfolio"
         />
       </Head>
       <Script

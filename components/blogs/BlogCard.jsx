@@ -23,11 +23,6 @@ function BlogCard({ blog }) {
             <h3 className="">{blog.author}</h3>
             <p className="text-xs">{blog.datePublished}</p>
           </div>
-          <div className="flex items-center pr-2">
-            <button>
-              <i className="fas fa-share-square"></i>
-            </button>
-          </div>
         </div>
         <div className="pl-2">
           <h1 className="py-1 sm:py-2 text-xl sm:text-2xl text-custom-peri">
@@ -44,15 +39,6 @@ function BlogCard({ blog }) {
               );
             })}
           </div>
-          {/* <div className="flex justify-between pt-2">
-            <div className="inline-block">
-              <i className="fas fa-heart pr-2"></i> {blog.numOfLikes} Likes
-            </div>
-            <div className="inline-block">
-              <i className="fas fa-comments px-2"></i>
-              {blog.numOfComments} Comments
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

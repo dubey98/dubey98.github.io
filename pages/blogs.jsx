@@ -3,6 +3,7 @@ import Script from "next/script";
 import BlogCard from "./../components/blogs/BlogCard";
 import BlogFilter from "../components/blogs/BlogFilter";
 import { getAllBlogs } from "../lib/api";
+import Link from "next/link";
 
 function blogs({ blogs }) {
   return (
@@ -18,38 +19,41 @@ function blogs({ blogs }) {
         crossOrigin="anonymous"
         strategy="lazyOnload"
       />
-      <main className="lg:ml-36 pt-10 text-custom-green min-h-screen flex">
+      <main className="lg:ml-36 pt-10 text-custom-green min-h-screen">
+        <nav className="p-2 text-xl">
+          <div className=" cursor-pointer">
+            <Link href={"/"} passHref>
+              <span>
+                <i className="fas fa-arrow-left"></i>
+                <span className="ml-2">Back to Homepage</span>
+              </span>
+            </Link>
+          </div>
+        </nav>
         <section className="flex-grow max-w-2xl">
           <BlogFilter />
           <div className="space-y-2 p-2">
-            {blogs.map((blog) => {
-              return <BlogCard key={blog.id} blog={blog} />;
-            })}
+            {blogs.length > 0 ? (
+              blogs.map((blog) => {
+                return <BlogCard key={blog.id} blog={blog} />;
+              })
+            ) : (
+              <ComingSoon />
+            )}
           </div>
         </section>
-        <aside className="hidden md:block flex-grow max-w-xs mt-12">
-          <div className="rounded-lg mt-1">
-            <h1 className="px-4 py-2 font-semibold text-xl">Other Topics</h1>
-            <div className="flex p-2 flex-wrap">
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
-                Programming
-              </div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
-                React
-              </div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
-                Next
-              </div>
-              <div className="px-4 m-1 py-1 border border-custom-green rounded-2xl">
-                JavaScript
-              </div>
-            </div>
-          </div>
-        </aside>
       </main>
     </div>
   );
 }
+
+const ComingSoon = () => {
+  return (
+    <div className="w-full border border-dashed border-custom-green h-72 rounded-xl flex justify-center items-center">
+      <span className="uppercase text-xl italic">Coming Soon...</span>
+    </div>
+  );
+};
 
 export async function getStaticProps() {
   const blogs = await getAllBlogs();
