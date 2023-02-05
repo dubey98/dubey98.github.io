@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
 
 function Navbar() {
   const [active, setActive] = useState(false);
@@ -52,18 +52,16 @@ function Navbar() {
           <a href="#projects">Projects</a>
         </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
-          <Link href={"/blogs"}>
-            <a>BLOGS</a>
-          </Link>
+          <Link href={"/blogs"}>BLOGS</Link>
         </div>
         <div className="text-2xl px-6 whitespace-nowrap">
-          <a href="#">SHIV DUBEY</a>
+          <Link href="#">SHIV DUBEY</Link>
         </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
-          <a href="#about">About</a>
+          <Link href="#about">About</Link>
         </div>
         <div className="px-6 font-light opacity-80 hover:opacity-100 border-box hidden sm:block ">
-          <a href="#contact">Contact</a>
+          <Link href="#contact">Contact</Link>
         </div>
         <div className="hidden sm:block border flex-grow max-w-[200px] border-custom-green"></div>
       </div>
@@ -74,18 +72,16 @@ function Navbar() {
         }
       >
         <div className="p-4" onClick={handleHamburgerClick}>
-          <a href="#projects">Projects</a>
+          <Link href="#projects">Projects</Link>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
-          <Link href={"/blogs"}>
-            <a>BLOGS</a>
-          </Link>
+          <Link href={"/blogs"}>BLOGS</Link>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
-          <a href="#about">About</a>
+          <Link href="#about">About</Link>
         </div>
         <div className="p-4" onClick={handleHamburgerClick}>
-          <a href="#contact">Contact</a>
+          <Link href="#contact">Contact</Link>
         </div>
       </div>
     </div>

@@ -26,9 +26,7 @@ function BlogCard({ blog }) {
         </div>
         <div className="pl-2">
           <h1 className="py-1 sm:py-2 text-xl sm:text-2xl text-custom-peri">
-            <Link href={"/blogs/" + blog.slug}>
-              <a>{blog.title}</a>
-            </Link>
+            <Link href={"/blogs/" + blog.slug}>{blog.title}</Link>
           </h1>
           <div className="flex text-xs sm:text-base flex-wrap -ml-2">
             {blog.tags.map((tag, index) => {

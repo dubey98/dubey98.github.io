@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import SocialLinks from "./SocialLinks";
 import ContactForm from "./ContactForm";
-import write from "../public/write.png";
-import Image from "next/image";
 
 function Contact() {
   const [showingContactForm, setShowingContactForm] = useState(false);
@@ -42,7 +41,12 @@ function Contact() {
                     className="flex border border-custom-green rounded-lg cursor-pointer"
                   >
                     <div className="h-16 w-16 flex items-center justify-center">
-                      <Image src={write} alt="Write a mail" height={50} width={50} />
+                      <Image
+                        src="/write.png"
+                        alt="Write a mail"
+                        height={50}
+                        width={50}
+                      />
                     </div>
                     <div className="text-custom-green text-sm flex items-center">
                       Write to me

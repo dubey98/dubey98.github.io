@@ -109,13 +109,12 @@ function ProjectDetails({ project }) {
         <div className="flex flex-wrap py-2">
           <TechTools toolsArray={project.toolsArray} containerCls="text-sm" />
         </div>
-        <div className="box-border h-32 sm:h-56 rounded-lg ring-4 ring-custom-green relative">
+        <div className="box-border h-32 sm:h-56 ring-4 ring-custom-green relative object-center object-cover rounded-lg">
           <Image
-            className="object-center object-cover rounded-lg"
-            layout="fill"
+            className=""
+            fill
             src={project.images[0].src}
             alt={project.images[0].alt}
-            loader={myLoader}
           />
         </div>
         <CTAButtons project={project} />

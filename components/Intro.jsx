@@ -20,14 +20,13 @@ function Intro() {
           <div className="hover:text-custom-gray">maintainable</div> systems.
         </div>
       </div>
-      <div className="w-1/2 h-full hidden md:block relative">
+      <div className="w-1/2 hidden md:block relative">
         <Image
-          src="https://i.ibb.co/1r6LQjd/developer.png"
-          layout="fill"
+          src="/developer.png"
+          fill
           alt="developer working beside a lamp"
-          objectFit="contain"
+          className="absolute object-contain"
           priority
-          loader={myLoader}
         />
       </div>
     </div>
