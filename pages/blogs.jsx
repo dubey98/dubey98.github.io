@@ -32,7 +32,7 @@ function blogs({ blogs }) {
               <p class=" lg:mx-auto lg:w-6/12">
                 Hi there! Thank you for checking out my website
                 <br />
-                I'm working on some blogs that i will soon publish here.
+                I@apos;m working on some blogs that i will soon publish here.
               </p>
             </div>
 
