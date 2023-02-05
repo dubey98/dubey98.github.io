@@ -49,7 +49,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/vastram-1.png",
+            src: "/vastram-1.webp",
             alt: "Vastram demo image",
           },
         ],
@@ -66,7 +66,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/karma.png",
+            src: "/karma.webp",
             alt: "Karma demo image",
           },
         ],
@@ -83,7 +83,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "/hotel.png",
+            src: "/hotel-new.webp",
             alt: "Hotel Website snapshot",
           },
         ],
@@ -93,7 +93,7 @@ export async function getStaticProps() {
           "This beautifull website is built for needs of a hotel chain supporting multiple locations and restaurant",
           "it's built with react and tailwind to provide faster load times and a smooth experience.",
         ],
-        demoLink: "https://hotel-book-dev.web.app/",
+        demoLink: "https://hotel-next-lilac.vercel.app/",
         githubLink: "https://github.com/dubey98/fb-react-hotel",
         toolsArray: ["react", "tailwind"],
       },

@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className="p-4 text-center bg-custom-black text-custom-green uppercase w-full relative">
       <div onClick={handleHamburgerClick} className="absolute sm:hidden">
-        <button className={"relative " + (active ? "group" : "")}>
+        <button className={"relative " + (active ? "group" : "")} name="navigation" title="navigation">
           <div
             className={
               "relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-[#211E27] shadow-md ring-0 ring-[#BBC3A5] ring-opacity-30 transition-all duration-200  " +

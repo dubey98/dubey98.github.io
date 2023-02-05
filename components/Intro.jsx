@@ -22,7 +22,7 @@ function Intro() {
       </div>
       <div className="w-1/2 hidden md:block relative">
         <Image
-          src="/developer.png"
+          src="/developer.webp"
           fill
           alt="developer working beside a lamp"
           className="absolute object-contain"
