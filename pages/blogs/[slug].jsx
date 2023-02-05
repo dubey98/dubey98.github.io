@@ -3,7 +3,10 @@ import Image from "next/image";
 import React from "react";
 import { getBlogBySlug, getBlogSlugs } from "../../lib/api";
 
-function Blog({ blog }) {
+function Blog(props) {
+  let blog = props && props.blog;
+  if (!blog) blog = {};
+
   return (
     <div>
       <Head>
@@ -11,7 +14,7 @@ function Blog({ blog }) {
         <meta name="description" content={blog.shortDescription} />
         <meta
           name="keywords"
-          content={blog.tags.map((tag) => tag.displayValue).join(" ,")}
+          content={blog?.tags?.map((tag) => tag.displayValue).join(" ,")}
         />
       </Head>
       <main className="bg-custom-black text-custom-green">
@@ -36,7 +39,7 @@ function Blog({ blog }) {
               {blog.title}
             </h1>
             <div className="-ml-1 flex pb-2 flex-wrap">
-              {blog.tags.map((tag, index) => {
+              {blog?.tags?.map((tag, index) => {
                 return (
                   <div
                     className="m-1 rounded-lg border border-black px-2 bg-custom-green text-custom-black"
@@ -75,7 +78,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const blogSlugs = getBlogSlugs();
   return {
-    paths: blogSlugs.map((slug) => {
+    paths: blogSlugs && blogSlugs.map((slug) => {
       return {
         params: {
           slug,
