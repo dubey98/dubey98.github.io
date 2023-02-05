@@ -17,6 +17,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            maxWidth: '100ch',
             color: theme("colors.custom.green"),
             // "--tw-prose-body": theme("colors.pink[800]"),
             "--tw-prose-headings": theme("colors.custom.green"),

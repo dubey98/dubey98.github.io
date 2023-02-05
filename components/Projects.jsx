@@ -111,10 +111,10 @@ function ProjectDetails({ project }) {
         </div>
         <div className="box-border h-32 sm:h-56 ring-4 ring-custom-green relative object-center object-cover rounded-lg">
           <Image
-            className=""
             fill
             src={project.images[0].src}
             alt={project.images[0].alt}
+            className="object-cover"
           />
         </div>
         <CTAButtons project={project} />
