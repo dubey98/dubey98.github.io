@@ -25,11 +25,11 @@ function blogs({ blogs }) {
             </Link>
           </div>
         </nav>
-        <div class="py-12">
-          <div class="px-6  md:px-12 xl:px-6">
-            <div class="mb-12 space-y-2 text-center">
-              <h2 class="text-3xl font-bold md:text-4xl">Sharing is Caring</h2>
-              <p class=" lg:mx-auto lg:w-6/12">
+        <div className="py-12">
+          <div className="px-6  md:px-12 xl:px-6">
+            <div className="mb-12 space-y-2 text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">Sharing is Caring</h2>
+              <p className=" lg:mx-auto lg:w-6/12">
                 Hi there! Thank you for checking out my website
                 <br />
                 I@apos;m working on some blogs that i will soon publish here.
