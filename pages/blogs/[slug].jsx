@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-import { myLoader } from "../../helpers/nextHelpers";
 import { getBlogBySlug, getBlogSlugs } from "../../lib/api";
 
-function Blog({ blog }) {
+function Blog(props) {
+  let blog = props && props.blog;
+  if (!blog) blog = {};
+
   return (
     <div>
       <Head>
@@ -12,20 +14,19 @@ function Blog({ blog }) {
         <meta name="description" content={blog.shortDescription} />
         <meta
           name="keywords"
-          content={blog.tags.map((tag) => tag.displayValue).join(" ,")}
+          content={blog?.tags?.map((tag) => tag.displayValue).join(" ,")}
         />
       </Head>
-      <main>
-        <div className="bg-custom-black text-custom-green min-h-screen">
-          <div className="px-4 py-12 max-w-4xl mx-auto">
+      <main className="bg-custom-black text-custom-green">
+        <div className=" min-h-screen container max-w-4xl mx-auto">
+          <div className="px-4 py-12">
             <div className="flex">
               <div className="flex items-center justify-center">
                 <div className="relative h-8 w-8 overflow-hidden rounded-full outline-2 outline-custom-green outline">
                   <Image
                     src={blog.authorImageSrc}
                     alt={blog.author + " image"}
-                    layout="fill"
-                    loader={myLoader}
+                    fill
                   />
                 </div>
               </div>
@@ -38,7 +39,7 @@ function Blog({ blog }) {
               {blog.title}
             </h1>
             <div className="-ml-1 flex pb-2 flex-wrap">
-              {blog.tags.map((tag, index) => {
+              {blog?.tags?.map((tag, index) => {
                 return (
                   <div
                     className="m-1 rounded-lg border border-black px-2 bg-custom-green text-custom-black"
@@ -77,7 +78,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const blogSlugs = getBlogSlugs();
   return {
-    paths: blogSlugs.map((slug) => {
+    paths: blogSlugs && blogSlugs.map((slug) => {
       return {
         params: {
           slug,

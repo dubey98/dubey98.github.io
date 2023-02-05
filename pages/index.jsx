@@ -4,13 +4,12 @@ import Intro from "../components/Intro";
 import Projects from "../components/Projects";
 import About from "../components/About";
 import Contact from "../components/Contact";
-import Script from "next/script";
 
 export default function Home({ data }) {
   return (
     <div>
       <Head>
-        <title>Shiv Dubey - Developer</title>
+        <title>Shiv Dubey</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#211E27" />
         <meta
@@ -19,14 +18,9 @@ export default function Home({ data }) {
         />
         <meta
           name="keywords"
-          content="Shiv Dubey,developer,full-stack,portfolio"
+          content="Shiv Dubey,developer,full-stack,portfolio,dubey98"
         />
       </Head>
-      <Script
-        src="https://kit.fontawesome.com/cf77766bad.js"
-        crossOrigin="anonymous"
-        strategy="lazyOnload"
-      />
       <div className="box-border snap-y overflow-y-auto h-screen snap-mandatory bg-custom-black">
         <section
           id="intro"
@@ -55,7 +49,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "https://i.ibb.co/LRM52mq/vastram-1.png",
+            src: "/vastram-1.webp",
             alt: "Vastram demo image",
           },
         ],
@@ -72,7 +66,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "https://i.ibb.co/nrRQwdy/karma.png",
+            src: "/karma.webp",
             alt: "Karma demo image",
           },
         ],
@@ -89,7 +83,7 @@ export async function getStaticProps() {
       {
         images: [
           {
-            src: "https://i.ibb.co/qYzjvDJ/hotel.png",
+            src: "/hotel-new.webp",
             alt: "Hotel Website snapshot",
           },
         ],
@@ -99,7 +93,7 @@ export async function getStaticProps() {
           "This beautifull website is built for needs of a hotel chain supporting multiple locations and restaurant",
           "it's built with react and tailwind to provide faster load times and a smooth experience.",
         ],
-        demoLink: "https://hotel-book-dev.web.app/",
+        demoLink: "https://hotel-next-lilac.vercel.app/",
         githubLink: "https://github.com/dubey98/fb-react-hotel",
         toolsArray: ["react", "tailwind"],
       },

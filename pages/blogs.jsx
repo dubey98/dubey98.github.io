@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Script from "next/script";
 import BlogCard from "./../components/blogs/BlogCard";
-import BlogFilter from "../components/blogs/BlogFilter";
 import { getAllBlogs } from "../lib/api";
 import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
 
 function blogs({ blogs }) {
   return (
@@ -14,25 +13,29 @@ function blogs({ blogs }) {
         <meta name="theme-color" content="#211E27" />
         <meta name="description" content="Programming blogs by Shiv Dubey" />
       </Head>
-      <Script
-        src="https://kit.fontawesome.com/cf77766bad.js"
-        crossOrigin="anonymous"
-        strategy="lazyOnload"
-      />
-      <main className="lg:ml-36 pt-10 text-custom-green min-h-screen">
+
+      <main className="lg:ml-36 pt-10 text-custom-green min-h-screen container m-auto">
         <nav className="p-2 text-xl">
           <div className=" cursor-pointer">
             <Link href={"/"} passHref>
-              <span>
-                <i className="fas fa-arrow-left"></i>
+              <span className="flex items-center">
+                <FaArrowLeft className="pr-1" />
                 <span className="ml-2">Back to Homepage</span>
               </span>
             </Link>
           </div>
         </nav>
-        <section className="flex-grow max-w-2xl">
-          <BlogFilter />
-          <div className="space-y-2 p-2">
+        <div class="py-12">
+          <div class="px-6  md:px-12 xl:px-6">
+            <div class="mb-12 space-y-2 text-center">
+              <h2 class="text-3xl font-bold md:text-4xl">Sharing is Caring</h2>
+              <p class=" lg:mx-auto lg:w-6/12">
+                Hi there! Thank you for checking out my website
+                <br />
+                I@apos;m working on some blogs that i will soon publish here.
+              </p>
+            </div>
+
             {blogs.length > 0 ? (
               blogs.map((blog) => {
                 return <BlogCard key={blog.id} blog={blog} />;
@@ -41,7 +44,7 @@ function blogs({ blogs }) {
               <ComingSoon />
             )}
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );

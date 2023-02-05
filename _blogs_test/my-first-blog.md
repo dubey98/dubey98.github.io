@@ -1,7 +1,8 @@
 ---
 id: 1
 author: "Shiv Dubey"
-authorImageSrc: "https://i.ibb.co/6DYLzT2/professional.png"
+authorImageSrc: "/professional.png"
+coverImg: "/hotel.png"
 datePublished: 2022-08-07
 title: "How to Learn Programming"
 numOfLikes: 24
