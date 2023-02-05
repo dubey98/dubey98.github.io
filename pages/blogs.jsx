@@ -11,7 +11,7 @@ function blogs({ blogs }) {
         <title>Shiv Dubey - Blogs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#211E27" />
-        <meta name="description" content="Programming blogs by Shiv Dubey" />
+        <meta name="description" content="Programming blogs by Shiv Dubey" />s
       </Head>
 
       <main className="lg:ml-36 pt-10 text-custom-green min-h-screen container m-auto">
@@ -26,7 +26,7 @@ function blogs({ blogs }) {
           </div>
         </nav>
         <div className="py-12">
-          <div className="px-6  md:px-12 xl:px-6">
+          <div className="px-6  md:px-12 xl:px-6">  
             <div className="mb-12 space-y-2 text-center">
               <h2 className="text-3xl font-bold md:text-4xl">Sharing is Caring</h2>
               <p className=" lg:mx-auto lg:w-6/12">
