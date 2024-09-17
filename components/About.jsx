@@ -69,7 +69,7 @@ function About() {
           <div className="w-fit py-2 sm:py-6" id="resume">
             <button className="border-2 px-4 py-2 rounded-md uppercase">
               <a
-                href="https://drive.google.com/file/d/1zIRcWdTJGqq2QUl-O_8qaTbyg4WwBVe0/view?usp=sharing"
+                href="https://drive.google.com/file/d/1GvIWVj5ikdPM9hTE5GlTMJKhfjuE_FEN/view?usp=sharing"
                 target={"_blank"}
                 rel="noreferrer"
               >
